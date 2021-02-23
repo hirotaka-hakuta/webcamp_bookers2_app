@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-    <table class="table table-striped">
 
     <div class="col-md-3">
       <%= render 'layouts/error_messages', model: @book%>
@@ -14,21 +13,36 @@
     </div>
 
     <div class="col-md-8 offset-md-1">
+<h2>Books</h2>
+<table class="table table-inverse">
+      <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
       <% @books.each do |book| %>
-        <div>
+        <tr>
+          <td>
           <%=link_to user_path(book.user.id) do%>
             <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
           <%end%>
-          <span>ユーザーネーム：<%= book.user.name %></span>
+          </td>
+          <td>
           <%=link_to book_path(book.id) do%>
-            <span>title：<%= book.title%></span>
+            <p><%= book.title%></p>
           <%end%>
-          <span>body：<%= book.body %></span>
-
-        </div>
+          </td>
+          <td>
+          <p>body：<%= book.body %></p>
+          </td>
+        </tr>
       <% end %>
+      </table>
      </div>
 
-    </table>
+
   </div>
 </div>
