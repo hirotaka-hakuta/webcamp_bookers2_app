@@ -1,0 +1,45 @@
+
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+
+
+
+     <div class="col-md-3">
+
+
+      <%= render 'layouts/user_info', user: @user%>
+
+
+        <%= link_to edit_user_path(@user.id),class: "btn btn-secondary" ,method: :get  do %>
+        <i class="fas fa-user-cog"></i>
+      <%end%>
+      <%= render 'layouts/create_book', book: @book%>
+
+
+     </div>
+
+    <div class="col-md-8 offset-md-1">
+
+
+<h2>Book</h2>
+
+
+<% @books.each do |book| %>
+<div>
+    <%=link_to user_path(@user) do%>
+  <p><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></p>
+<%end%>
+
+  <%=link_to book_path(book) do%>
+    <p>title:<%= book.title %></p>
+  <%end%>
+  <p>body：<%= book.body %></p>
+</div>
+<% end %>
+
+    </div>
+
+    </table>
+  </div>
+</div>

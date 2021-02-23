@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <table class="table table-striped">
+
+    <div class="col-md-3">
+      <%= render 'layouts/error_messages', model: @book%>
+      <%= render 'layouts/user_info', user: @user%>
+      <% if @user.id == current_user.id %>
+        <%= link_to edit_user_path(current_user.id),class: "btn btn-secondary" ,method: :get  do %>
+        <i class="fas fa-user-cog"></i>
+      <%end%>
+      <%end%>
+      <%= render 'layouts/create_book', book: @book%>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      <% @books.each do |book| %>
+        <div>
+          <%=link_to user_path(book.user.id) do%>
+            <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+          <%end%>
+          <span>ユーザーネーム：<%= book.user.name %></span>
+          <%=link_to book_path(book.id) do%>
+            <span>title：<%= book.title%></span>
+          <%end%>
+          <span>body：<%= book.body %></span>
+
+        </div>
+      <% end %>
+     </div>
+
+    </table>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<%= render 'layouts/error_messages', model: @user%>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+     <div class="mx-auto" style="width: 80%;">
+<div class="d-flex flex-column" style="height: 200px;">
+<h2 class="d-flex flex-column">User info</h2>
+
+
+
+<%= form_with model:@user, local:true do |f| %>
+<div class="d-flex flex-column">
+
+  <label for="inputName">Name</label>
+  <%= f.text_field :name, autofocus: true, id:"inputName"%>
+</div>
+<div>
+    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+  <label for="inputImage">Image</label>
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+</div>
+<div class="d-flex flex-column">
+    <label for="inputIntoroduction">Intoroduction</label>
+  <%= f.text_area :introduction, autofocus: true, id:"inputintroduction",placeholder:""%>
+  <%= f.submit "Update User" %>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>

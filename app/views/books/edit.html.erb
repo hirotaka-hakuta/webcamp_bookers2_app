@@ -1,0 +1,31 @@
+     <%= render 'layouts/error_messages', model: @book%>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+     <div class="mx-auto" style="width-80;">
+<div class="d-flex flex-column" style="height: 200px;">
+<h2 class="d-flex flex-column">Editing Book</h2>
+
+<%= form_with model: @book, local: true do |f| %>
+<div class="d-flex flex-column">
+  <label for="editTitle">Title</label>
+  <%= f.text_field :title, autofocus: true%>
+</div>
+<div class="d-flex flex-column">
+    <label for="inputIntoroduction">Opinion</label>
+  <%= f.text_area :body, autofocus: true,placeholder:""%>
+  <%= f.submit "Update Book" %>
+</div>
+<% end %>
+
+<%=link_to "Show",book_path(@book)%>
+<%=link_to "Back",books_path%>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
