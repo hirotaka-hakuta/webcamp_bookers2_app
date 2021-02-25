@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
   # before_action :preedit,only: [:edit]
   def show
-    @book=Book.new
+    @book2=Book.new
     @user = User.find(params[:id])
     @books = @user.books
   end
 
   def index
-    @book=Book.new
+    @book2=Book.new
     @user=current_user
     @users=User.all
   end

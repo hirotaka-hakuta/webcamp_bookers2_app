@@ -15,7 +15,7 @@
 
     <div class="col-md-8 offset-md-1">
         <h2>Users</h2>
-    <table class="table table-striped">
+    <table class="table table-inverse">
 
 <thead>
     <tr>
@@ -28,7 +28,7 @@
     <% @users.each do |user| %>
 
         <tr>
-            <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %></td>
+            <td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg",size:"40x40" %></td>
             <td><p><%= user.name%></p></td>
             <td><%=link_to "Show",user_path(user.id)%></td>
         </tr>
